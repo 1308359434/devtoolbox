@@ -15,6 +15,7 @@ if ($LASTEXITCODE -ne 0) { throw "测试失败，停止构建" }
 Write-Host "== 3/4 PyInstaller 打包（onedir，保持 Qt DLL 独立动态链接）=="
 pyinstaller --noconfirm --clean --onedir --name DevToolBox `
   --exclude-module tkinter --exclude-module matplotlib --exclude-module numpy `
+  --exclude-module PySide6.WebEngine --exclude-module PySide6.QtWebEngineCore `
   src/devtoolbox/__main__.py
 if ($LASTEXITCODE -ne 0) { throw "打包失败" }
 
