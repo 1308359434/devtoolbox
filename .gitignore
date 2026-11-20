@@ -1,5 +1,24 @@
+# 运行时数据
 todos.json
+
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
 .venv/
+.pytest_cache/
+.ruff_cache/
+
+# 构建产物
+build/
+dist/
+*.spec
+*.zip
+
+# 编辑器 / 系统
 .DS_Store
+.idea/
+.vscode/
+
+# WorkBuddy 工作区数据（非项目代码）
+.workbuddy/
