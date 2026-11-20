@@ -12,8 +12,10 @@ __pycache__/
 # 构建产物
 build/
 dist/
+release/
 *.spec
 *.zip
+DevToolBox.exe
 
 # 编辑器 / 系统
 .DS_Store

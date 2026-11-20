@@ -18,7 +18,9 @@
 
 ## 下载与运行
 
-从 [Releases](https://github.com/1308359434/devtoolbox/releases) 下载 Windows 便携版，解压后运行 `DevToolBox.exe`。
+从 [Releases](https://github.com/1308359434/devtoolbox/releases) 下载 Windows 版，zip 解压后双击 `DevToolBox.exe` 即可运行——单文件，无需安装依赖。
+
+`DevToolBox.exe` 为 PyInstaller onefile 产物：首次启动会解压到临时目录，约需数秒；运行时不联网、不写注册表。许可与第三方声明随 zip 附带。
 
 源码运行：
 

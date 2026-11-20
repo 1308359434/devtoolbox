@@ -20,13 +20,14 @@ jobs:
       - name: Test
         run: pytest
       - name: Build with PyInstaller
-        run: pyinstaller --noconfirm --clean --onedir --name DevToolBox --exclude-module tkinter --exclude-module matplotlib --exclude-module numpy --exclude-module PySide6.WebEngine --exclude-module PySide6.QtWebEngineCore src/devtoolbox/__main__.py
-      - name: Copy license notices
+        run: pyinstaller --noconfirm --clean --onefile --name DevToolBox --exclude-module tkinter --exclude-module matplotlib --exclude-module numpy --exclude-module PySide6.WebEngine --exclude-module PySide6.QtWebEngineCore src/devtoolbox/__main__.py
+      - name: Assemble release zip
         run: |
-          Copy-Item LICENSE dist/DevToolBox/
-          Copy-Item THIRD_PARTY_NOTICES.md dist/DevToolBox/
-      - name: Zip portable build
-        run: Compress-Archive -Path dist/DevToolBox/* -DestinationPath DevToolBox-portable-win.zip
+          New-Item -ItemType Directory -Force -Path release
+          Copy-Item dist/DevToolBox.exe release/
+          Copy-Item LICENSE release/
+          Copy-Item THIRD_PARTY_NOTICES.md release/
+          Compress-Archive -Path release/* -DestinationPath DevToolBox-portable-win.zip
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
